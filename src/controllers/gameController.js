@@ -62,15 +62,14 @@ const gameController = {
         try {
             const deletedGame = await Game.destroy({ where: { id: req.params.id } });
             if (deletedGame) {
-                res.status(200).json({ message: 'Game deleted successfully' });
+                res.status(204).json({ message: 'Game deleted successfully' });
             } else {
                 res.status(404).json({ message: 'Game not found' });
             }
         } catch (error) {
-            res.status(500).json(
-                { message: 'Error deleting game', error });
+            res.status(500).json({ message: 'Error deleting game', error });
         }
-    },
+    }
 
 };
 
