@@ -2,7 +2,7 @@ const sequelize = require('../db');
 const createGameModel  = require('../models/game');
 const Game = createGameModel (sequelize, sequelize.Sequelize.DataTypes);
 
-module.exports = {
+const gameController = {
     //3a. Criação:
     async create(req, res) {
         try {
@@ -70,5 +70,8 @@ module.exports = {
             res.status(500).json(
                 { message: 'Error deleting game', error });
         }
-    }
+    },
+
 };
+
+module.exports = gameController;
